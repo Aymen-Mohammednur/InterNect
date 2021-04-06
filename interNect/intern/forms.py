@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField,FileAllowed
 from flask_login import current_user
-from wtforms import  StringField,PasswordField,SubmitField,BooleanField
+from wtforms import  StringField,PasswordField,SubmitField,BooleanField,SelectField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired,EqualTo,Length,Email,email_validator,ValidationError
 
@@ -11,7 +11,7 @@ class InternRegistrationForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired(), 
                                             Length(min=2, max=15)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    gender = StringField('Gender', validators=[DataRequired()])
+    gender = SelectField('Gender',  choices = [('M', 'Male'), ('F', 'Female')], validators=[DataRequired()])
     date_of_birth = DateField('Date of Birth', format='%Y-%m-%D')
     phone_number = StringField('Phone Number', validators=[DataRequired()])
     description = StringField('Description (Optional)')
