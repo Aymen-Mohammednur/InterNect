@@ -14,8 +14,8 @@ from interNect import bcrypt,db
 
 intern=Blueprint('intern',__name__)
 
-@intern.route('/register')
-def refgister():
+@intern.route('/register',methods=['GET','POST'] )
+def register():
     form=InternRegistrationForm()
     if form.validate_on_submit():
         print()
