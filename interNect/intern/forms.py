@@ -22,7 +22,8 @@ class InternRegistrationForm(FlaskForm):
     register = SubmitField('Register')
 
     def validate_email(self, email):
-        email = Intern.query.filterby(email = email.data).first()
+        email = False
+        # Intern.query.filterby(email = email.data).first()
 
         if email:
             raise ValidationError("That email is already in use. Please choose another one.")
