@@ -1,6 +1,6 @@
 from flask import (Blueprint, render_template,url_for,
                     flash,redirect,request,abort)
-from InterNect.intern.forms import InternRegistrationForm
+from interNect.intern.forms import InternRegistrationForm
 
 from interNect import bcrypt,db
 
