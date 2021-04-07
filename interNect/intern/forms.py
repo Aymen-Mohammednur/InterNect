@@ -12,7 +12,8 @@ class InternRegistrationForm(FlaskForm):
                                             Length(min=2, max=15)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     gender = SelectField('Gender',  choices = [('M', 'Male'), ('F', 'Female')], validators=[DataRequired()])
-    date_of_birth = DateField('Date of Birth', format='%Y-%m-%D')
+    date_of_birth = DateField('Date of Birth')
+    # , format='%m-%D-%Y'
     phone_number = StringField('Phone Number', validators=[DataRequired()])
     description = StringField('Description (Optional)')
     password = PasswordField('Password', validators=[DataRequired()])
