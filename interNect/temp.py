@@ -6,12 +6,14 @@ def create(db):
 
     bcrypt=Bcrypt()
     password=bcrypt.generate_password_hash('1234').decode('utf-8')
-    db.create_all()
-    # user=User(username='suraap',            email='sutrap@gmail.com',password=password)
+  
+    user=User(username='suraap',email='sutrap@gmail.com',password=password,lname="Aman",fname="aman",gender='male')
     
-    # db.session.add(user)  
-    # db.session.commit()
+    db.session.add(user)  
+    db.session.commit()
     # post=Post(title="1",content="asdad",user_id=1)
     
     # db.session.add(post)  
-    # db.session.commit()
+    db.session.commit()
+    print("\n")
+    print(User.query.first())
