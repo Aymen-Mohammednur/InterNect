@@ -14,9 +14,9 @@ class Company(db.Model,UserMixin):
     password = db.Column(db.String(60),nullable=False)
     address= db.Column(db.String)
     phone=db.Column(db.String)
-    #category = db.Column(db.String, nullable=False)
-    #description= db.Column(db.Text)
-    #postalCode = db.Column(db.String)
+    category = db.Column(db.String, nullable=False)
+    description= db.Column(db.Text)
+    postalCode = db.Column(db.String)
 
 
     posts = db.relationship('Post',backref='company',lazy=True)
@@ -28,6 +28,8 @@ class Company(db.Model,UserMixin):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    fname = db.Column(db.String(20),nullable=False)    
+    lname = db.Column(db.String(20),nullable=False)    
     username = db.Column(db.String(20),unique=True,nullable=False)    
     email = db.Column(db.String(120),unique=True,nullable=False)    
     dob = db.Column(db.DateTime, nullable= False)
