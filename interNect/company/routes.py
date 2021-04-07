@@ -14,6 +14,15 @@ from interNect import bcrypt,db
 
 company=Blueprint('company',__name__)
 
-
+@company.route('/register',methods=['GET','POST'] )
+def register():
+    form=CompanyRegistrationForm()
+    if form.validate_on_submit():
+        print()
+        print()
+        print(form.company_name.data)
+        print()
+        print()
+    return render_template('company_register.html',form=form)
 
  

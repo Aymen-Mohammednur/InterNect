@@ -14,6 +14,10 @@ class Company(db.Model,UserMixin):
     password = db.Column(db.String(60),nullable=False)
     address= db.Column(db.String)
     phone=db.Column(db.String)
+    #category = db.Column(db.String, nullable=False)
+    #description= db.Column(db.Text)
+    #postalCode = db.Column(db.String)
+
 
     posts = db.relationship('Post',backref='company',lazy=True)
 
