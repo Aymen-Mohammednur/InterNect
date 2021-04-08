@@ -3,6 +3,7 @@ from flask import (Blueprint, render_template,url_for,
 
 
 from interNect import bcrypt,db
+from interNect.company.forms import CompanyRegistrationForm
 
 
 # import models here 

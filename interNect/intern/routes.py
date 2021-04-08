@@ -14,8 +14,8 @@ from interNect import bcrypt,db
 
 intern=Blueprint('intern',__name__)
 
-@intern.route('/register',methods=['GET','POST'] )
-def register():
+@intern.route('/InternRegister',methods=['GET','POST'] )
+def InternRegister():
     form=InternRegistrationForm()
     if form.validate_on_submit():
         print()
@@ -23,6 +23,8 @@ def register():
         print(form.first_name.data)
         print()
         print()
+        flash(f'Account created for {form.first_name.data}!', 'success')
+
     return render_template('intern_register.html',form=form)
 
 
