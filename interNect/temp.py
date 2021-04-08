@@ -7,7 +7,7 @@ def create(db):
     bcrypt=Bcrypt()
     password=bcrypt.generate_password_hash('1234').decode('utf-8')
   
-    user=User(username='suraap',email='sutrap@gmail.com',password=password,lname="Aman",fname="aman",gender='male')
+    user=User(username='suraap',email='test@gmail.com',password=password,lname="Aman",fname="aman",gender='male')
     
     db.session.add(user)  
     db.session.commit()

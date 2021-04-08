@@ -8,17 +8,17 @@ from flask_login import UserMixin
 
 class Company(db.Model,UserMixin):
     id= db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String,unique=True, nullable=False )
+    company_name = db.Column(db.String,unique=True, nullable=False )
     email = db.Column(db.String, unique=True, nullable=False)
     profile_img = db.Column(db.String, default='company.jpg',unique=False)
     password = db.Column(db.String(60),nullable=False)
-    address= db.Column(db.String)
-    phone=db.Column(db.String)
+    street_address= db.Column(db.String)
+    phone_number=db.Column(db.String)
     category = db.Column(db.String, nullable=False)
     description= db.Column(db.Text)
-    postalCode = db.Column(db.String)
+    postal_code = db.Column(db.String)
 
-    posts = db.relationship('Post',backref='company',lazy=True)
+    posts = db.relationship('Post',backref='author',lazy=True)
     
 
 
