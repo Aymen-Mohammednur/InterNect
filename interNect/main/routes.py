@@ -2,7 +2,7 @@ from flask import Blueprint,render_template,request,flash
 # import models here
 # import forms here
 from interNect.main.forms import LoginForm
-
+from interNect.posts.forms import PostForm
 
 main=Blueprint('main',__name__)
 
