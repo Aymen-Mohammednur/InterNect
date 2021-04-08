@@ -23,7 +23,7 @@ def register():
         encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         company = Company(company_name=form.company_name.data, email=form.email.data, 
                         password=encrypted_password, street_address=form.street_address.data, 
-                        phone_number=form.phone_nu.data, category=form.category.data, 
+                        phone_number=form.phone_number.data, category=form.category.data, 
                         description=form.description.data, postal_code=form.postal_code.data)
         
         db.session.add(company)
