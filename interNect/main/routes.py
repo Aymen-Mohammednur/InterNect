@@ -4,8 +4,12 @@ from interNect import bcrypt
 from interNect.models import User,Company
 # import forms here
 from interNect.main.forms import LoginForm
+<<<<<<< HEAD
 from interNect.posts.forms import PostForm
 from flask_login import login_user,logout_user
+=======
+from interNect.models import Post
+>>>>>>> 9a69abe180bcecf8e54758c1d50c0760bc1375f6
 
 
 main=Blueprint('main',__name__)
@@ -14,7 +18,8 @@ main=Blueprint('main',__name__)
 @main.route("/")
 @main.route("/home")
 def home():
-    return render_template('home.html')
+    posts = Post.query.all()
+    return render_template('home.html',posts=posts)
 
 
 @main.route("/about")
