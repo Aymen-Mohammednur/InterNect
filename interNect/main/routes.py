@@ -2,6 +2,7 @@ from flask import Blueprint,render_template,request,flash
 # import models here
 # import forms here
 from interNect.main.forms import LoginForm
+from interNect.models import Post
 
 
 main=Blueprint('main',__name__)
@@ -10,7 +11,8 @@ main=Blueprint('main',__name__)
 @main.route("/")
 @main.route("/home")
 def home():
-    return render_template('home.html')
+    posts = Post.query.all()
+    return render_template('home.html',posts=posts)
 
 
 @main.route("/about")
