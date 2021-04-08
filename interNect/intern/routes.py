@@ -10,7 +10,8 @@ from interNect import bcrypt,db
 # from flask_login import login_user,current_user,logout_user,login_required
 
 
-
+from internect import db,bcrypt
+from InterNect.models import User
 
 intern=Blueprint('intern',__name__)
 
@@ -18,11 +19,11 @@ intern=Blueprint('intern',__name__)
 def InternRegister():
     form=InternRegistrationForm()
     if form.validate_on_submit():
-        print()
-        print()
-        print(form.first_name.data)
-        print()
-        print()
+
+        password=bcrypt.generate_password_hash(form.password.data).\
+            decode('utf-8')
+        intern=User(form.first)
+        
         flash(f'Account created for {form.first_name.data}!', 'success')
 
     return render_template('intern_register.html',form=form)
