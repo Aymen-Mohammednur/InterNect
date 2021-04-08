@@ -4,6 +4,7 @@ from interNect import bcrypt
 from interNect.models import User,Company
 # import forms here
 from interNect.main.forms import LoginForm
+from interNect.posts.forms import PostForm
 from flask_login import login_user
 
 
@@ -28,7 +29,7 @@ def login():
         intern=User.query.filter_by(email=form.email.data).first()
 
         if (intern and            bcrypt.check_password_hash(intern.password,form.password.data)):
-            login_user(intern,remember=form.remeber.data)
+            login_user(intern,remember=form.remember.data)
             next_page=request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
 
