@@ -34,12 +34,22 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
             
-              <a class="nav-item nav-link" href="{{url_for('main.login')}}">Login</a>
-              <a class="nav-item nav-link" href="{{url_for('intern.InternRegister')}}">Register As Intern</a>
-              <a class="nav-item nav-link" href="{{url_for('company.register')}}">Register As Company</a>
+            {% if current_user.isAauthenticated  %}
+              <a class="nav-item nav-link" href="{{url_for('main.login')}}">New Post</a>
+                <a class="nav-item nav-link" href="{{url_for('intern.InternRegister')}}"></a>
+                <a class="nav-item nav-link" href="{{url_for('company.register')}}">Register As Company</a>
      
+            {% else %}
+                <a class="nav-item nav-link" href="{{url_for('main.login')}}">Login</a>
+                <a class="nav-item nav-link" href="{{url_for('intern.InternRegister')}}">Register As Intern</a>
+                <a class="nav-item nav-link" href="{{url_for('company.register')}}">Register As Company</a>
+     
+            {% endif %}
+              
             
-                     </div>
+              
+            
+            </div>
           </div>
         </div>
       </nav>
