@@ -3,9 +3,12 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 from interNect import db
 from flask_login import UserMixin
+from interNect import login_manager
 
 # Company - Name, email, Contact Info(address, phone, postal code), category
-
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 class Company(db.Model,UserMixin):
     id= db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String,unique=True, nullable=False )
