@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField,FileAllowed
 from flask_login import current_user
-from wtforms import  StringField,PasswordField,SubmitField,BooleanField,SelectField
+from wtforms import  StringField,PasswordField,SubmitField,BooleanField,SelectField,TextAreaField
 from wtforms.validators import DataRequired,EqualTo,Length,Email,email_validator,ValidationError
 
 
@@ -13,8 +13,8 @@ class CompanyRegistrationForm(FlaskForm):
     street_address = StringField('Street Address', validators=[DataRequired(), 
                                             Length(min=2, max=25)])
     postal_code = StringField('Postal Code (Optional)')
-    description = StringField('Company Description (Optional)')
-    category = SelectField('class',  choices = [('Tech', 'Technology'), ('Constr', 'Construction'), ('Agro', 'Agriculture'), ('Bio', 'Biomedical'), ('Chem', 'Chemical'), ('Mechatro', 'Mechatronix')], validators=[DataRequired()])
+    description = TextAreaField('Company Description (Optional)')
+    category = SelectField('Class',  choices = [('Tech', 'Technology'), ('Constr', 'Construction'), ('Agro', 'Agriculture'), ('Bio', 'Biomedical'), ('Chem', 'Chemical'), ('Mechatro', 'Mechatronix')], validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', 
                             validators=[DataRequired(),
