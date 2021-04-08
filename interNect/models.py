@@ -14,7 +14,7 @@ class Company(db.Model,UserMixin):
     password = db.Column(db.String(60),nullable=False)
     street_address= db.Column(db.String)
     phone_number=db.Column(db.String)
-    category = db.Column(db.String, nullable=False)
+    category = db.Column(db.String)
     description= db.Column(db.Text)
     postal_code = db.Column(db.String)
 
@@ -23,7 +23,7 @@ class Company(db.Model,UserMixin):
 
 
     def __repr__(self):
-        return f"company ({self.name}, {self,email}, {self.profile_img})"
+        return f"company ({self.name}, {self.email}, {self.profile_img})"
 
 # Intern Applicant - Name, Email, DOB, Gender, Contact Info, OPTIONAL (Description, School Name)
 
