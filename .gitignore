@@ -23,5 +23,4 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
-
 site.db
