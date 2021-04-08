@@ -5,7 +5,7 @@ from interNect.models import User,Company
 # import forms here
 from interNect.main.forms import LoginForm
 from interNect.posts.forms import PostForm
-from flask_login import login_user
+from flask_login import login_user,logout_user
 
 
 main=Blueprint('main',__name__)
@@ -39,6 +39,11 @@ def login():
 
     
     return render_template('login.html',form=form,title="Login")
+
+@main.route('/logout',methods=['GET','POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('main.home'))
 
 
 
