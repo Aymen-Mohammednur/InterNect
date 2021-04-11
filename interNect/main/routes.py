@@ -30,8 +30,19 @@ def login():
     if form.validate_on_submit():
         intern=User.query.filter_by(email=form.email.data).first()
 
-        if (intern and            bcrypt.check_password_hash(intern.password,form.password.data)):
+        if (intern and bcrypt.check_password_hash(intern.password,form.password.data)):
             login_user(intern,remember=form.remember.data)
+            next_page=request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('main.home'))
+
+            flash(f'Account created for {form.email.data}!', 'success')
+        else:
+            flash(f'Wrong email or password ' ,'danger')
+
+        company=company.query.filter_by(email=form.email.data).first()
+
+        if (company and            bcrypt.check_password_hash(company.password,form.password.data)):
+            login_user(company,remember=form.remember.data)
             next_page=request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
 
