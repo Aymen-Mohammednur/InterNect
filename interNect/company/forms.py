@@ -3,7 +3,7 @@ from flask_wtf.file import FileField,FileAllowed
 from flask_login import current_user
 from wtforms import  StringField,PasswordField,SubmitField,BooleanField,SelectField,TextAreaField
 from wtforms.validators import DataRequired,EqualTo,Length,Email,email_validator,ValidationError
-from interNect.models import  Company
+from interNect.models import Company
 
 class CompanyRegistrationForm(FlaskForm):
     company_name = StringField('Company Name', validators=[DataRequired(), 
@@ -22,8 +22,12 @@ class CompanyRegistrationForm(FlaskForm):
     register = SubmitField('Register')
 
     def validate_email(self, email):
-
         email = Company.query.filter_by(email = email.data).first()
+
+        if email:
+            raise ValidationError("That email is already in use. Please choose another one.")
+    def validate_company_name(self, email):
+        email = Company.query.filter_by(email = company_name.data).first()
 
         if email:
             raise ValidationError("This email is already in use. Please choose another one.")
