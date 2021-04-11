@@ -3,11 +3,7 @@ from flask_wtf.file import FileField,FileAllowed
 from flask_login import current_user
 from wtforms import  StringField,PasswordField,SubmitField,BooleanField,SelectField,TextAreaField
 from wtforms.validators import DataRequired,EqualTo,Length,Email,email_validator,ValidationError
-<<<<<<< HEAD
 from interNect.models import Company
-=======
-from interNect.models import  Company
->>>>>>> 102b6f1ad57409b6d291cb45a30fccba7986c048
 
 class CompanyRegistrationForm(FlaskForm):
     company_name = StringField('Company Name', validators=[DataRequired(), 

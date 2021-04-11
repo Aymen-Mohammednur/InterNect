@@ -7,12 +7,9 @@ from interNect import bcrypt
 from interNect.models import User,Company
 # import forms here
 from interNect.main.forms import LoginForm
-<<<<<<< HEAD
 from interNect.posts.forms import PostForm
 from flask_login import login_user,logout_user
-=======
 from interNect.intern.forms import InternUpdateForm
->>>>>>> 102b6f1ad57409b6d291cb45a30fccba7986c048
 from interNect.models import Post
 from flask_login import login_user, logout_user, current_user, login_required
 
