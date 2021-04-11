@@ -22,10 +22,10 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
 
     db.init_app(app)
-    # with app.app_context():
-    #     db.drop_all()
-    #     db.create_all()
-    #     create(db)
+    with app.app_context():
+        db.drop_all()
+        db.create_all()
+        create(db)
     bcrypt.init_app(app)
     
 

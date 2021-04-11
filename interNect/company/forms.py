@@ -26,11 +26,7 @@ class CompanyRegistrationForm(FlaskForm):
 
         if email:
             raise ValidationError("That email is already in use. Please choose another one.")
-    def validate_company_name(self, email):
-        email = Company.query.filter_by(email = company_name.data).first()
-
-        if email:
-            raise ValidationError("This email is already in use. Please choose another one.")
+            
     def validate_companyName(self,company_name):
         name = Company.query.filter_by(company_name=company_name.data).first()
 
