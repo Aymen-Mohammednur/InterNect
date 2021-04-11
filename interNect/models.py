@@ -40,7 +40,7 @@ class User(db.Model, UserMixin):
     gender = db.Column(db.String,nullable=False)
     phone= db.Column(db.String)
     description= db.Column(db.Text)
-    profile_img = db.Column(db.String(20),default='user.jpg')
+    profile_img = db.Column(db.String(20),default='company.jpg')
     password = db.Column(db.String(60),nullable=False)
 
 

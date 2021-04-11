@@ -48,7 +48,8 @@ class InternUpdateForm(FlaskForm):
     # , format='%m-%D-%Y'
     phone_number = StringField('Phone Number', validators=[DataRequired()])
     description = StringField('Description (Optional)')
-   
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
+
     update = SubmitField('Update')
 
     def validate_email(self, email):
@@ -57,3 +58,18 @@ class InternUpdateForm(FlaskForm):
 
         if email != self.email:
             raise ValidationError("Sorry Can't Change Email.")
+
+    def validate_username(self, username):
+        if username.data != current_user.username:
+            user = User.query.filter_by(username=username.data).first()
+
+            if user:
+                raise ValidationError("That username is taken. Please choose a different one.")
+
+    # def validate_email(self, email):
+    #     if email.data != current_user.email:
+    #         email = User.query.filter_by(email=email.data).first()
+
+    #         if email:
+    #             raise ValidationError("That email is taken. Please choose a different one.")
+

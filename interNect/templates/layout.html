@@ -35,9 +35,15 @@
             <div class="navbar-nav">
             
             {% if current_user.is_authenticated  %}
+<<<<<<< HEAD
                  <a class="nav-item nav-link" href="{url_for('posts.post')}">New Post</a>
                 <a class="nav-item nav-link" href="{url_for('main.logout')}">Logout</a>
                 <a class="nav-item nav-link" href="">Profile</a>
+=======
+                 <a class="nav-item nav-link" href="">New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+                <a class="nav-item nav-link" href="{{url_for('main.profile') }}">Profile</a>
+>>>>>>> 102b6f1ad57409b6d291cb45a30fccba7986c048
      
             {% else %}
                 <a class="nav-item nav-link" href="{{url_for('main.login')}}">Login</a>

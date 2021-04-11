@@ -1,7 +1,7 @@
 from flask import (Blueprint, render_template,url_for,
                     flash,redirect,request,abort)
-from interNect.intern.forms import InternRegistrationForm
-
+from interNect.intern.forms import InternRegistrationForm, InternUpdateForm
+from flask_login import login_user, logout_user, current_user, login_required
 from interNect import bcrypt,db
 
 
@@ -42,5 +42,3 @@ def InternRegister():
     return render_template('intern_register.html',form=form)
 
 
-
- 
