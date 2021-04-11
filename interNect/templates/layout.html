@@ -30,7 +30,12 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{url_for('main.home')}}">Home</a>
               <a class="nav-item nav-link" href="{{url_for('main.about')}}">About</a>
-              <a class="nav-item nav-link" href="{{url_for('posts.post')}}">Post</a>
+              {% if current_user.is_authenticated %}
+              <!-- Check if the logged user has post previlages -->
+                  {%if current_user.company_name %}
+                     <a class="nav-item nav-link" href="{{url_for('posts.post')}}">Post</a>
+                  {%endif%}
+              {% endif %}
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
